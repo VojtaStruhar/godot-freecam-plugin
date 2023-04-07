@@ -50,7 +50,6 @@ func _process(delta: float) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED if movement_active else Input.MOUSE_MODE_VISIBLE)
 		display_message("[Movement ON]" if movement_active else "[Movement OFF]")
 	
-	
 	if movement_active:
 		var dir = Vector3.ZERO
 		if Input.is_action_pressed("__debug_camera_forward"): 	dir.z -= 1
@@ -118,7 +117,3 @@ func _add_key_input_action(name: String, key: Key) -> void:
 	InputMap.add_action(name)
 	InputMap.action_add_event(name, ev)
 
-
-func _add_mouse_input_action(name: String, key: MouseButton) -> void:
-	var ev = InputEventMouseButton.new()
-	ev.button_index = key
