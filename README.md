@@ -11,6 +11,7 @@ The plugin provides a custom node called `DebugCamera`. You can add it via the t
 - Turn the movement on/off with `Tab`
 - Move using `WASD`
 - Fly up and down with `Space` / `Shift`
+- You can change your flying speed with the mouse scroll wheel.
 
 ## Roadmap
 
