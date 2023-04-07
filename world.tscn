@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciekwh884wb3e"]
+
+[ext_resource type="Script" path="res://addons/debug_camera/debug_camera.gd" id="1_bb7eu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovv2o"]
+albedo_color = Color(0.380392, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_13ptd"]
+material = SubResource("StandardMaterial3D_ovv2o")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gq6dh"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rbtun"]
+albedo_color = Color(0.784314, 0.152941, 0.301961, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_68mt4"]
+material = SubResource("StandardMaterial3D_rbtun")
+size = Vector3(1, 1, 3)
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0625487, -0.80627, 0.588231, -0.519111, 0.529669, 0.670802, -0.852415, -0.263399, -0.451674, 2.59236, 1.64455, -2.73933)
+shadow_enabled = true
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.203646)
+mesh = SubResource("SphereMesh_13ptd")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.910503, 0)
+mesh = SubResource("BoxMesh_gq6dh")
+
+[node name="BoxThrowsShadows" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.907088, 0.128969, -0.400698, -0.181813, 0.978575, -0.0966183, 0.379652, 0.160493, 0.911102, 0.202665, 1.51786, -0.325268)
+mesh = SubResource("BoxMesh_68mt4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00178, 1.78814e-07, 1.70132)
+light_color = Color(0, 1, 0, 1)
+omni_range = 2.60569
+
+[node name="DebugCamera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5006)
+script = ExtResource("1_bb7eu")
