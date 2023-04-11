@@ -1,6 +1,6 @@
 extends Camera3D
 
-class_name DebugCamera
+class_name Freecam3D
 
 ##
 ## Camera with toggleable freecam mode for prototyping when creating levels, shaders, lighting, etc.
@@ -34,19 +34,26 @@ var target_speed := MIN_SPEED
 var velocity := Vector3.ZERO
 
 
-func _ready() -> void:
-	# Place itself onto the pivot
-	self.add_sibling.call_deferred(pivot)
+## Sets up pivot and UI overlay elements.
+func _setup_nodes() -> void:
+	self.add_sibling(pivot)
+	pivot.position = position
+	pivot.rotation = rotation
 	pivot.name = "FreecamPivot"
-	self.reparent.call_deferred(pivot)
-	
+	self.reparent(pivot)
+	self.position = Vector3.ZERO
+	self.rotation = Vector3.ZERO
+	# UI stuff
 	screen_overlay.add_theme_constant_override("Separation", 8)
 	self.add_child(screen_overlay)
 	screen_overlay.add_child(_make_label("Debug Camera"))
 	screen_overlay.add_spacer(false)
 	
 	screen_overlay.add_child(event_log)
-	
+
+
+func _ready() -> void:
+	_setup_nodes.call_deferred()
 	_add_keybindings()
 
 
