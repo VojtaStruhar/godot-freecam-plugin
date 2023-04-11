@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Plugin_DebugFreecam"
+config/description="Test project forthe  Freecam3D plugin."
 run/main_scene="res://uber_ui.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assetlib-icon.jpg"
 
 [display]
 

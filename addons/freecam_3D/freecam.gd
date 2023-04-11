@@ -22,7 +22,12 @@ const ACCELERATION := 0.1
 const MOUSE_SENSITIVITY := 0.002
 
 ## Whether or not the camera can move.
-var movement_active := false
+var movement_active := false:
+	set(val):
+		movement_active = val
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED if movement_active else Input.MOUSE_MODE_VISIBLE)
+		display_message("[Movement ON]" if movement_active else "[Movement OFF]")
+
 ## The current maximum speed. Lower or higher it by scrolling the mouse wheel.
 var target_speed := MIN_SPEED
 ## Movement velocity.
@@ -49,8 +54,6 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_released("__debug_camera_toggle"):
 		movement_active = not movement_active
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED if movement_active else Input.MOUSE_MODE_VISIBLE)
-		display_message("[Movement ON]" if movement_active else "[Movement OFF]")
 	
 	if movement_active:
 		var dir = Vector3.ZERO

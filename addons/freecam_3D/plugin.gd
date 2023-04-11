@@ -1,6 +1,9 @@
 @tool
 extends EditorPlugin
 
+##
+## Bootstraps the Freecam3D node.
+##
 
 func _enter_tree() -> void:
 	print("[Freecam3D Plugin] Loaded.")
