@@ -22,4 +22,4 @@ window/size/viewport_height=1080
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/debug_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/freecam_3D/plugin.cfg")

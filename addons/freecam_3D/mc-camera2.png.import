@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4kitg6s5bcqu"
-path="res://.godot/imported/mc-camera2.png-356dd03f372877b8f41615a4a9c9e70a.ctex"
+path="res://.godot/imported/mc-camera2.png-fe60f555c5ea92c0796267cd654ef834.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/debug_camera/mc-camera2.png"
-dest_files=["res://.godot/imported/mc-camera2.png-356dd03f372877b8f41615a4a9c9e70a.ctex"]
+source_file="res://addons/freecam_3D/mc-camera2.png"
+dest_files=["res://.godot/imported/mc-camera2.png-fe60f555c5ea92c0796267cd654ef834.ctex"]
 
 [params]
 

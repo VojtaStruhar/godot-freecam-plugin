@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ciekwh884wb3e"]
+[gd_scene load_steps=7 format=3 uid="uid://ckbab6qea750w"]
 
-[ext_resource type="Script" path="res://addons/debug_camera/debug_camera.gd" id="1_bb7eu"]
+[ext_resource type="Script" path="res://addons/freecam_3D/freecam.gd" id="1_qkntm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itnm7"]
 specular_mode = 1
@@ -43,6 +43,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.728549, 1.78814e-07, 1.458
 light_color = Color(0, 1, 0, 1)
 omni_range = 3.37167
 
-[node name="DebugCamera" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5006)
-script = ExtResource("1_bb7eu")
+[node name="Freecam3D" type="Node3D" parent="."]
+script = ExtResource("1_qkntm")
