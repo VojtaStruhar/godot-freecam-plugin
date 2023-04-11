@@ -7,7 +7,7 @@ func _enter_tree() -> void:
 	
 	add_custom_type(
 			"Freecam3D", 
-			"Node3D", 
+			"Camera3D", 
 			preload("res://addons/freecam_3D/freecam.gd"), 
 			preload("res://addons/freecam_3D/mc-camera2.png"))
 

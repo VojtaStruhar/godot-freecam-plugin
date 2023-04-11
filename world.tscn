@@ -43,5 +43,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.728549, 1.78814e-07, 1.458
 light_color = Color(0, 1, 0, 1)
 omni_range = 3.37167
 
-[node name="Freecam3D" type="Node3D" parent="."]
+[node name="Freecam3D" type="Camera3D" parent="."]
 script = ExtResource("1_qkntm")

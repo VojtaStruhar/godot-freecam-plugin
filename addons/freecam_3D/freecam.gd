@@ -1,4 +1,4 @@
-extends Node3D
+extends Camera3D
 
 class_name DebugCamera
 
@@ -9,8 +9,8 @@ class_name DebugCamera
 ##
 
 
-## The actual camera. The main node as pivot for the first person camera movement.
-@onready var camera := Camera3D.new()
+## Pivot node for camera looking around
+@onready var pivot := Node3D.new()
 ## Main parent for camera overlay.
 @onready var screen_overlay := VBoxContainer.new()
 ## Container for the chat-like event log.
@@ -30,11 +30,13 @@ var velocity := Vector3.ZERO
 
 
 func _ready() -> void:
-
-	self.add_child(camera)
+	# Place itself onto the pivot
+	self.add_sibling.call_deferred(pivot)
+	pivot.name = "FreecamPivot"
+	self.reparent.call_deferred(pivot)
 	
 	screen_overlay.add_theme_constant_override("Separation", 8)
-	camera.add_child(screen_overlay)
+	self.add_child(screen_overlay)
 	screen_overlay.add_child(_make_label("Debug Camera"))
 	screen_overlay.add_spacer(false)
 	
@@ -60,19 +62,19 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("__debug_camera_down"): 		dir.y -= 1
 		
 		dir = dir.normalized()
-		dir = dir.rotated(Vector3.UP, rotation.y)
+		dir = dir.rotated(Vector3.UP, pivot.rotation.y)
 		
 		velocity = lerp(velocity, dir * target_speed, ACCELERATION)
-		position += velocity
+		pivot.position += velocity
 
 
 func _input(event: InputEvent) -> void:
 	if movement_active:
 		# Turn around
 		if event is InputEventMouseMotion:
-			rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
-			camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
-			camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+			pivot.rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+			rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
+			rotation.x = clamp(rotation.x, -PI/2, PI/2)
 		
 		# Speed up and down with the mouse wheel
 		if event is InputEventMouseButton:
