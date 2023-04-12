@@ -46,4 +46,4 @@ omni_range = 3.37167
 [node name="Freecam3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, 1.60554e-24, 0.707107, 3.48787e-16, 1, -3.48787e-16, -0.707107, 4.93259e-16, 0.707107, 3, 3, 4)
 script = ExtResource("1_qkntm")
-toggle_key = 80
+invert_speed_controls = true

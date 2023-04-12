@@ -8,7 +8,10 @@ class_name Freecam3D
 ## Usage: Run your game, press <TAB> and fly around freely. Uses Minecraft-like controls.
 ##
 
+## Customize your own toggle key to avoid collisions with your current mappings.
 @export var toggle_key: Key = KEY_TAB
+## Speed up / down by scrolling the mouse whell down / up
+@export var invert_speed_controls: bool = false
 
 ## Pivot node for camera looking around
 @onready var pivot := Node3D.new()
@@ -87,15 +90,21 @@ func _input(event: InputEvent) -> void:
 			rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
 			rotation.x = clamp(rotation.x, -PI/2, PI/2)
 		
+		var speed_up = func():
+			target_speed = clamp(target_speed + 0.15, MIN_SPEED, MAX_SPEED)
+			display_message("[Speed up] " + str(target_speed))
+			
+		var slow_down = func():
+			target_speed = clamp(target_speed - 0.15, MIN_SPEED, MAX_SPEED)
+			display_message("[Slow down] " + str(target_speed))
+		
 		# Speed up and down with the mouse wheel
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-				target_speed = clamp(target_speed + 0.15, MIN_SPEED, MAX_SPEED)
-				display_message("[Speed up] " + str(target_speed))
+				slow_down.call() if invert_speed_controls else speed_up.call()
 				
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-				target_speed = clamp(target_speed - 0.15, MIN_SPEED, MAX_SPEED)
-				display_message("[Slow down] " + str(target_speed))
+				speed_up.call() if invert_speed_controls else slow_down.call()
 
 
 ## Pushes new message label into "chat" and removes the old ones if necessary
