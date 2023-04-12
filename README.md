@@ -21,7 +21,7 @@ Planned features and improvements. If you'd like to help me on this tiny project
 - [ ] Reset - come back to the original place when freecam mode is turned off
   - A key shortcut may suffice
 - [x] ~~Add camera editor gizmo.~~ Solved by using `Camera3D` as a base node
-- [ ] Configure your own toggle key (currently hardcoded `Tab`)
+- [x] Configure your own toggle key (currently hardcoded `Tab`)
 - [ ] Speed controls - add trackpad support, not just mouse scroll wheel
 - [x] Restructure the node: Currently pivot is the main node and the camera is added in code. But like this, the camera isn't customizable at all. Better approach would be to inherit from Camera3D and in `_ready` add the pivot and reparent itself to it.
 - [x] Unify plugin and node names - pick one.

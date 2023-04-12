@@ -8,6 +8,7 @@ class_name Freecam3D
 ## Usage: Run your game, press <TAB> and fly around freely. Uses Minecraft-like controls.
 ##
 
+@export var toggle_key: Key = KEY_TAB
 
 ## Pivot node for camera looking around
 @onready var pivot := Node3D.new()
@@ -119,7 +120,7 @@ func _add_keybindings() -> void:
 	if "__debug_camera_right" 	not in actions: _add_key_input_action("__debug_camera_right", KEY_D)
 	if "__debug_camera_up" 		not in actions: _add_key_input_action("__debug_camera_up", KEY_SPACE)
 	if "__debug_camera_down" 	not in actions: _add_key_input_action("__debug_camera_down", KEY_SHIFT)
-	if "__debug_camera_toggle" 	not in actions: _add_key_input_action("__debug_camera_toggle", KEY_TAB)
+	if "__debug_camera_toggle" 	not in actions: _add_key_input_action("__debug_camera_toggle", toggle_key)
 
 
 func _add_key_input_action(name: String, key: Key) -> void:
