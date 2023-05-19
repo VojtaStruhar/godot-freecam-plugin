@@ -1,5 +1,6 @@
 extends Camera3D
 
+## Camera with flying script attached to it.
 class_name Freecam3D
 
 ##
@@ -12,6 +13,8 @@ class_name Freecam3D
 @export var toggle_key: Key = KEY_TAB
 ## Speed up / down by scrolling the mouse whell down / up
 @export var invert_speed_controls: bool = false
+
+@export var overlay_text: bool = true
 
 ## Pivot node for camera looking around
 @onready var pivot := Node3D.new()
@@ -54,6 +57,7 @@ func _setup_nodes() -> void:
 	screen_overlay.add_spacer(false)
 	
 	screen_overlay.add_child(event_log)
+	screen_overlay.visible = overlay_text
 
 
 func _ready() -> void:
