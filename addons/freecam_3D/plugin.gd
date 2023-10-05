@@ -11,8 +11,8 @@ func _enter_tree() -> void:
 	add_custom_type(
 			"Freecam3D", 
 			"Camera3D", 
-			preload("res://addons/freecam_3D/freecam.gd"), 
-			preload("res://addons/freecam_3D/mc-camera2.png"))
+			preload("freecam.gd"), 
+			preload("mc-camera2.png"))
 
 
 func _exit_tree() -> void:
