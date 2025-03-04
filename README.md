@@ -6,6 +6,8 @@ That's why I created this custom node that serves as a debug Camera3D. It's like
 
 ## Usage
 
+Downloadable from [Godot's Asset Library](https://godotengine.org/asset-library/asset/1803)
+
 The plugin provides a custom node called `DebugCamera`. You can add it via the traditional node menu.
 
 - Turn the movement on/off with `Tab`
